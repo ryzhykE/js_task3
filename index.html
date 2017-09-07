@@ -1,0 +1,85 @@
+<html>
+    <body>
+        <div>
+            <div class="list">
+            </div>
+
+        </div>
+        <style>
+            .list{
+            width: 100px;
+            }
+        </style>
+
+        <script>
+            var todo = [
+            {
+            "img":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKeMvpR9tX946njfLWTkLPy-03ttH9NuSx5vPk_orFGDlG0JgF",
+            "name":"dog1",
+            "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+            "type":"dog"
+            },
+            {
+            "img":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgk2Qhxuk21BEkavCtnthsPdao2r0txcrHQenM3YFtNG8LJXK4KUDb5w6o",
+            "name":"dog2",
+            "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+            "type":"dog"
+            },
+            {
+            "img":"http://skarvit.ru/wp-content/uploads/2011/05/79_e6c2419c4d.jpg",
+            "name":"dog3",
+            "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+            "type":"dog"
+            },
+            {
+            "img":"http://storyfox.ru/wp-content/uploads/2015/11/shutterstock_265075847-696x528.jpg",
+            "name":"cat",
+            "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+            "type":"cat"
+            },
+            {
+            "img":"http://fit4brain.com/wp-content/uploads/2014/05/cat.jpg",
+            "name":"cat1",
+            "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+            "type":"cat"
+            },
+
+            {
+                "img":"http://images.aif.ru/007/900/1371f302c43b580b99a742aeb5e4372f.jpg",
+                "name":"cat2",
+                "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+                "type":"cat"
+            }       
+            ];
+
+            function Drow () {
+                this.drow = function(task){
+                    var list = document.querySelector(".list");
+                    todo.forEach( function(task,key) {
+                        var node = document.createElement('img');
+                        node.src= task['img'];
+                        node.setAttribute('width', '200px');
+                        var node1 = document.createElement('h3');
+                        node1.innerHTML = task['name'];
+                        var node2 = document.createElement('p');
+                        node2.innerHTML = task['desc'];
+                        if(task['type'] == 'cat') {
+                            list.appendChild(node);
+                            list.appendChild(node1);
+                            list.appendChild(node2);
+                        }
+                        if(task['type'] == 'dog') {
+                            list.appendChild(node1);
+                            list.appendChild(node2);
+                            list.appendChild(node);
+                        }
+
+                    });
+                }
+            }
+            var drow = new Drow();
+            drow.drow(todo);
+
+        </script>
+    </body>
+</html>
